@@ -1,0 +1,50 @@
+---
+title: 'Procesador y Agentes IA'
+description: 'Motor principal que lee el buffer, clasifica intenciones y gestiona la lógica de negocio.'
+icon: 'robot'
+---
+
+El flujo **Procesador** es el núcleo de inteligencia de la Picantería Lurwis. Se ejecuta de forma asíncrona, consumiendo los mensajes agrupados y utilizando modelos de IA (Google Gemini) para conversar, consultar la base de datos y registrar pedidos.
+
+## Disparador (Trigger)
+
+Este flujo no depende de un evento externo directo, sino que utiliza un **Schedule Trigger** (Cron) que se ejecuta automáticamente cada **10 segundos**.
+
+## Flujo de Trabajo
+
+### 1. Lectura y Expansión
+* El sistema busca en **Redis** todos los usuarios que tienen un buffer de mensajes pendiente.
+* Extrae el contenido agrupado, borra el registro temporal en Redis y formatea el texto consolidado para pasarlo a los agentes de IA.
+
+### 2. Control de Horario de Atención
+Antes de procesar la intención, un nodo verifica la hora actual del servidor (Zona horaria: America/Lima). 
+* Si la hora está fuera del rango de atención (10:00 AM a 11:00 PM), envía un mensaje automático de "Local Cerrado" indicando los horarios.
+* Si está dentro del horario, el flujo continúa.
+
+### 3. Clasificación de Intenciones
+Se utiliza un agente impulsado por LangChain y Gemini para categorizar el mensaje del cliente, guardando el contexto en **MongoDB**. Las categorías de enrutamiento son:
+* **PEDIDOS:** Para compras de comida.
+* **RESERVAS_MESA:** Para asistir al local a comer.
+* **RESERVAS_LOCAL:** Para eventos especiales.
+* **GENERAL:** Preguntas sobre ubicación, horarios, etc.
+
+### 4. Ejecución por Agentes Especializados
+Dependiendo de la clasificación, el mensaje se redirige a un agente específico:
+
+* **Agente General:** Utiliza una herramienta de código para devolver respuestas estáticas sobre ubicación (Chiclayo), métodos de pago (Yape, Plin) y redes sociales.
+* **Agente Pedidos:** Es el agente más complejo. Utiliza herramientas conectadas a **PostgreSQL** (`consultar_categorias`, `consultar_platos`, `verificar_plato`) para navegar por el menú. Gestiona el cálculo de subtotales y obliga a una confirmación final.
+
+### 5. Gestión de Base de Datos (PostgreSQL)
+Una vez que el "Agente Pedidos" obtiene la confirmación explícita (la palabra *confirmo*), genera un objeto estructurado. 
+* El sistema evalúa si el cliente tiene un pedido pendiente.
+* Ejecuta consultas SQL para **Insertar** un nuevo pedido o **Modificar** uno existente en la tabla `pedidos_picanteria`.
+* Guarda un registro de auditoría con el historial del chat en la tabla `logs_auditoria`.
+
+### 6. Notificaciones Finales
+Tras el guardado exitoso (o fallido) en la base de datos, se envía un mensaje final por la API de WhatsApp al cliente con el resumen detallado de su orden, el total a pagar y el método de envío elegido (Delivery o Recojo).
+
+## Tecnologías Utilizadas
+* **Google Gemini:** Modelo principal para comprensión y generación de lenguaje natural.
+* **PostgreSQL:** Base de datos relacional para el menú, precios y estado de pedidos.
+* **MongoDB:** Base de datos NoSQL para mantener la memoria y el historial de conversación de los agentes LangChain.
+* **Redis:** Consumo del buffer temporal.
