@@ -1,0 +1,26 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Docs Picantería Lurwis",
+  "colors": {
+    "primary": "#FF5733",
+    "light": "#FF8C66",
+    "dark": "#C70039",
+    "anchors": "#FF5733"
+  },
+  "topbarCtaButton": {
+    "name": "Ver en GitHub",
+    "url": "https://github.com/K3vosx/AQUI_PON_EL_NOMBRE_DE_TU_REPO"
+  },
+  "navigation": [
+    {
+      "group": "Automatizaciones n8n",
+      "pages": [
+        "docs/receptor",
+        "docs/procesador"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/K3vosx"
+  }
+}
