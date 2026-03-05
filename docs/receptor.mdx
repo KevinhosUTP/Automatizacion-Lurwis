@@ -1,0 +1,43 @@
+---
+title: 'Receptor de Mensajes (Webhook)'
+description: 'Flujo encargado de recibir, filtrar y agrupar los mensajes entrantes de WhatsApp.'
+icon: 'webhook'
+---
+
+El flujo **Receptor** es el punto de entrada de nuestra automatización para la Picantería Lurwis. Su objetivo principal es recibir los webhooks de Meta de manera instantánea, filtrar eventos innecesarios y agrupar múltiples mensajes de un mismo usuario usando un sistema de Buffer antes de enviarlos a procesamiento.
+
+## Disparador (Trigger)
+
+El flujo se inicia a través de un nodo **Webhook** configurado para escuchar las peticiones POST enviadas por la API de WhatsApp Business (Meta).
+
+* **Ruta:** `/meta-verify`
+* **Método:** Múltiples (GET para verificación, POST para mensajes).
+
+## Flujo de Trabajo
+
+### 1. Verificación y Filtrado
+Cuando entra una petición, el sistema realiza una validación inicial:
+* Responde automáticamente a los retos de verificación (`hub.challenge`) de Meta.
+* Utiliza un nodo **If** para identificar si el payload contiene un mensaje de texto real.
+* Ignora las actualizaciones de estado de mensajes (entregado, leído) para no consumir recursos innecesarios.
+
+### 2. Extracción de Datos
+Un nodo de tipo Set extrae y limpia los datos esenciales del payload JSON complejo de Meta:
+* Número de teléfono del remitente (`from`).
+* Cuerpo del mensaje de texto (`text.body`).
+* Identificador único del mensaje y del cliente.
+* Nombre de perfil de WhatsApp (`profile_name`).
+
+### 3. Sistema de Buffer Temporal (Redis)
+Para evitar que el bot responda por separado si el cliente envía varios mensajes cortos seguidos (ej. "Hola", "Quiero pedir", "Un ceviche"), el sistema usa **Redis** como memoria temporal:
+* **Búsqueda:** Verifica si el cliente ya tiene un buffer activo.
+* **Agrupación:** Concatena los mensajes nuevos con los anteriores usando un salto de línea.
+* **Almacenamiento:** Guarda el bloque de texto en Redis con un Time-To-Live (TTL) de 30 segundos.
+* **Metadatos:** Almacena también el ID del mensajero para saber por dónde responder después.
+
+### 4. Respuesta Rápida
+Finalmente, el flujo retorna un código HTTP `200 OK` a Meta inmediatamente después de guardar en Redis, asegurando que Meta no marque el webhook como fallido por timeout.
+
+## Tecnologías Utilizadas
+* Nodos Core de n8n (Webhook, If, Set, Code).
+* Conexión a base de datos en memoria **Redis** para la gestión del buffer de mensajes.
