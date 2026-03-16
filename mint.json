@@ -9,7 +9,7 @@
   },
   "topbarCtaButton": {
     "name": "Ver en GitHub",
-    "url": "https://github.com/KevinhosUTP/Automatizacion-LurwisO"
+    "url": "https://github.com/KevinhosUTP/Automatizacion-Lurwis"
   },
   "navigation": [
     {
@@ -17,6 +17,24 @@
       "pages": [
         "docs/receptor",
         "docs/procesador"
+      ]
+    },
+    {
+      "group": "CRM — Picantería Lurwis",
+      "pages": [
+        "docs/crm/overview",
+        "docs/crm/arquitectura"
+      ]
+    },
+    {
+      "group": "Módulos del CRM",
+      "pages": [
+        "docs/crm/login",
+        "docs/crm/dashboard",
+        "docs/crm/pedidos",
+        "docs/crm/historial",
+        "docs/crm/configuracion",
+        "docs/crm/chats"
       ]
     }
   ],
