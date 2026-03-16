@@ -1,0 +1,38 @@
+---
+title: "Dashboard Resumen"
+description: "Visualización de métricas clave, KPIs financieros y resumen general del restaurante."
+icon: "chart-line"
+---
+
+## Descripción
+
+Panel principal con métricas en tiempo real del restaurante. Permite seleccionar el período de análisis y actualizar manualmente los datos.
+
+## Controles
+
+- Selector de período: **Hoy / Esta Semana / Este Mes**
+- Botón de actualización manual
+
+## KPIs Principales
+
+<CardGroup cols={2}>
+  <Card title="Ingresos Totales" icon="money-bill" />
+  <Card title="Ticket Promedio" icon="receipt" />
+  <Card title="Pedidos Exitosos" icon="circle-check">
+    Incluye porcentaje de éxito.
+  </Card>
+  <Card title="Total de Pedidos" icon="bag-shopping" />
+</CardGroup>
+
+## Gráficos
+
+| Gráfico | Descripción |
+|---------|-------------|
+| **Top 5 Platos** | Barras de progreso con `BarraPlato` |
+| **Horas Pico** | Gráfico de barras de 9:00 a 18:00 hrs |
+| **Métodos de Pago** | Donut: Efectivo, Yape, Plin, Tarjeta |
+| **Tipo de Servicio** | Barras: Delivery vs. Recojo |
+
+## Tabla de Últimos Pedidos
+
+Conectada directamente a Supabase, muestra los últimos 5 pedidos con columnas: ID, Cliente, Detalle, Total, Método de Pago, Servicio, Dirección y Estado.

@@ -1,0 +1,36 @@
+---
+title: "Configuración del Menú"
+description: "Interfaz CRUD para administrar los platos del restaurante."
+icon: "sliders"
+---
+
+## Descripción
+
+Panel administrativo para gestionar el menú del restaurante: habilitar/deshabilitar platos, agregar nuevos, editar existentes y eliminar.
+
+## Componentes Principales
+
+<CardGroup cols={2}>
+  <Card title="ToggleSwitch" icon="toggle-on">
+    Activa o desactiva la disponibilidad de un plato instantáneamente.
+  </Card>
+  <Card title="EditModal" icon="pen-to-square">
+    Formulario modal para crear o editar platos (Nombre, Descripción, Categoría).
+  </Card>
+  <Card title="CategoriaSection" icon="layer-group">
+    Acordeón colapsable que agrupa platos por categoría con íconos dinámicos (Ceviche, Bebida, Trío, etc.).
+  </Card>
+</CardGroup>
+
+## Operaciones CRUD
+
+| Operación | Descripción |
+|-----------|-------------|
+| **Crear** | Botón "Agregar plato" abre `EditModal` vacío |
+| **Leer** | Lista de acordeones por categoría |
+| **Actualizar** | Editar nombre, descripción, disponibilidad |
+| **Eliminar** | Botón de eliminación por fila |
+
+## Hook Utilizado
+
+- `usePlatos` — gestiona el estado y operaciones contra Supabase

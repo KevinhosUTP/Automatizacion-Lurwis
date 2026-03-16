@@ -1,0 +1,30 @@
+---
+title: "Visión General del CRM"
+description: "Panel de administración web para la gestión del chatbot y operaciones de Picantería Lurwis."
+icon: "store"
+---
+
+## ¿Qué es el CRM?
+
+El CRM de Lurwis es una interfaz web construida en **React + Vite + Tailwind CSS** que permite a los administradores del restaurante gestionar en tiempo real los pedidos, el menú, el historial de ventas y los chats del bot de WhatsApp.
+
+## Stack Tecnológico
+
+| Capa | Tecnología |
+|------|-----------|
+| Frontend | React, TypeScript, Vite, Tailwind CSS |
+| Base de Datos | Supabase (PostgreSQL) |
+| Tiempo Real | WebSockets via Supabase Realtime |
+| Despliegue | Vercel |
+| Automatización | n8n (Webhooks) |
+
+## Rutas del Sistema
+
+| Ruta | Módulo | Acceso |
+|------|--------|--------|
+| `/login` | Inicio de sesión | Público |
+| `/` | Dashboard resumen | Protegido |
+| `/pedidos` | Pedidos en vivo | Protegido |
+| `/historial` | Historial de ventas | Protegido |
+| `/config` | Configuración del menú | Protegido |
+| `/chats` | Chats con clientes | Próximamente |

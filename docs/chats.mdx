@@ -1,0 +1,28 @@
+---
+title: "Chats con Clientes"
+description: "Módulo futuro para visualizar e interceptar conversaciones gestionadas por el bot."
+icon: "comments"
+---
+
+<Warning>
+  Este módulo está planificado para una próxima versión. Actualmente la ruta `/chats` está comentada en el código.
+</Warning>
+
+## Descripción
+
+Visualizador e interceptor de los chats gestionados por el bot de WhatsApp. Permitirá a los administradores monitorear conversaciones y tomar el control cuando sea necesario.
+
+## Estructura Prevista
+
+### Panel de Contactos (Barra Lateral)
+- Buscador de chats
+- Lista de clientes activos (Nombre, teléfono, último mensaje, timestamp)
+
+### Panel de Mensajes (Centro)
+- Burbujas de chat estilo WhatsApp
+- Diferenciación visual entre **Bot Wilson** y **Cliente**
+
+### Intervención Humana
+- Botón rojo flotante **"Intervenir Bot"**
+- Al activarlo, habilita el campo de texto para que el administrador tome el control de la conversación
+- Por defecto el campo está bloqueado (el bot responde automáticamente)

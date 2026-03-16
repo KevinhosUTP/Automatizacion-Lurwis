@@ -1,0 +1,28 @@
+---
+title: "Inicio de Sesión"
+description: "Interfaz de autenticación para administradores del sistema."
+icon: "right-to-bracket"
+---
+
+## Descripción
+
+Página de acceso exclusiva para administradores. Valida credenciales contra Supabase y establece la sesión global mediante `AuthProvider`.
+
+## Funcionalidades
+
+- Campo de **Usuario o Correo Electrónico**
+- Campo de **Contraseña** con toggle de visibilidad (ícono de ojo)
+- Checkbox **"Recordarme"**
+- Enlace **"¿Olvidaste tu contraseña?"**
+- Botón con estado de carga (`Verificando...` con spinner)
+
+## Gestión de Errores
+
+<Warning>
+  Se muestran banners de alerta para los casos: credenciales inválidas y correo sin confirmar.
+</Warning>
+
+## Hooks Utilizados
+
+- `useAuth` — extrae la función `login` y el estado `user`
+- `useNavigate` — redirige al dashboard tras autenticación exitosa

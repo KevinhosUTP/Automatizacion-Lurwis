@@ -1,0 +1,32 @@
+---
+title: "Arquitectura y Enrutamiento"
+description: "Estructura de contextos, rutas protegidas y proveedores globales del CRM."
+icon: "sitemap"
+---
+
+## Estructura de la Aplicación
+
+La aplicación envuelve todas las rutas en dos proveedores de contexto globales:
+
+```jsx
+<AuthProvider>
+  <NotificationsProvider>
+    <Router />
+  </NotificationsProvider>
+</AuthProvider>
+```
+
+## Proveedores de Contexto
+
+<CardGroup cols={2}>
+  <Card title="AuthProvider" icon="lock">
+    Gestiona el estado de autenticación, la función `login` y la sesión activa del usuario administrador.
+  </Card>
+  <Card title="NotificationsProvider" icon="bell">
+    Gestiona las notificaciones en tiempo real de nuevos pedidos, incluyendo sonido de alerta.
+  </Card>
+</CardGroup>
+
+## Rutas Protegidas
+
+Las rutas privadas están envueltas en `ProtectedRoute` + `MainLayout`, que redirigen al `/login` si no hay sesión activa.

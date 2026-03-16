@@ -1,0 +1,33 @@
+---
+title: "Historial de Ventas"
+description: "Búsqueda y visualización retrospectiva de todos los pedidos finalizados."
+icon: "clock-rotate-left"
+---
+
+## Descripción
+
+Permite a los administradores consultar el ciclo de vida completo de pedidos que ya no están activos, con filtros por fecha y método de pago.
+
+## Filtros Disponibles
+
+- **Período:** Hoy / Esta Semana / Este Mes / Mes Pasado / Todo
+- **Método de Pago:** Yape, Plin, Efectivo, Tarjeta (con íconos)
+
+## Tarjetas de Resumen
+
+- Total de pedidos
+- Ingresos netos
+- Pedidos entregados
+- Pedidos cancelados
+
+## Tablero Estático (Columnas)
+
+| Columna | Color |
+|---------|-------|
+| Entregados | Verde |
+| Recogidos | Teal |
+| Cancelados | Rojo (opacidad reducida) |
+
+## Hook Utilizado
+
+- `usePedidosHistorial` — consulta paginada a Supabase según filtros activos

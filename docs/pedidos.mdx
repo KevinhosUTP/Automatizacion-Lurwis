@@ -1,0 +1,41 @@
+---
+title: "Pedidos en Vivo"
+description: "Tablero Kanban en tiempo real para gestionar el flujo de cocina y entregas."
+icon: "bolt"
+---
+
+## Descripción
+
+Tablero interactivo impulsado por **WebSockets (Supabase Realtime)** que actualiza el estado de los pedidos en tiempo real sin necesidad de refrescar la página.
+
+## Columnas del Kanban
+
+<Steps>
+  <Step title="Nuevos (Azul)">
+    Pedidos entrantes del bot. Acción: **"Aceptar → Cocina"**
+  </Step>
+  <Step title="En Cocina (Amarillo)">
+    Pedidos en preparación. Acción: **"Listo → Entregar"**
+  </Step>
+  <Step title="Por Entregar (Naranja)">
+    Pedidos en ruta o esperando al cliente. Acción: **"Completar"**
+  </Step>
+  <Step title="Completados (Verde)">
+    Registro temporal de pedidos exitosos.
+  </Step>
+</Steps>
+
+## Temporizador Dinámico
+
+Cada tarjeta activa (`ActiveCard`) muestra el tiempo transcurrido y cambia de color según la demora:
+
+| Color | Tiempo |
+|-------|--------|
+| 🟢 Verde | Normal |
+| 🟠 Naranja | Demora moderada |
+| 🔴 Rojo | Demora crítica |
+
+## Hooks Utilizados
+
+- `usePedidosRealtime` — suscripción WebSocket a cambios en Supabase
+- `useNotifications` — dispara alertas sonoras en pedidos nuevos
