@@ -1,0 +1,2505 @@
+{
+  "name": "Picantería Lurwis | Procesador",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## NOTA 4\nEste nodo Postgres, ejecuta una query en la DB que verifica si es que tiene un pedido o no, usa la operación TRIM para eliminar espacios que pueden ser molestos. Maneja errores en cuanto  al seguir el flujo si este falla o no.\n",
+        "height": 208,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -896,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "73df5d4f-ee0b-467e-a451-040912873e8a",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 5\nEste IF, ayuda a la verificación de la query anterior.",
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        144
+      ],
+      "id": "a7fe3e86-7ecd-409a-baae-36a426469981",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 5.1\nEste agente es necesario para saber si el cliente solamente quiere información del pedido o quiere modificar el pedido,  usa un modelo de chat rápido.",
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "14b1c7d6-1f2a-4be3-8b4d-dcb71577e686",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 6\nEste agente es super importante y necesario, este se ocupa de la clasificación de cada mensaje enviado por el cliente, usa un modelo de chat rápido.",
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        144
+      ],
+      "id": "0e301f7c-fb40-4e60-948e-156a121b281d",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 5.1.1\nEse \"Analizador Intención Flexible\", sirve para verificar exactamente que es lo que quiere modificar el cliente.",
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        -64
+      ],
+      "id": "0c86f9eb-1b31-4765-8ec8-e0b36417e017",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 6.1\nEste agente se ocupa netamente de las reservas al local. Aún no está en uso (falta lógica) y creación de collections en mongoDB.",
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -896,
+        464
+      ],
+      "id": "df7308f1-6f5c-4ecc-805d-5bf22d6f9362",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 6.2\nEste agente se ocupa netamente de las reservas de mesas. Aún no está en uso (falta lógica) y creación de collections en mongoDB.",
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        464
+      ],
+      "id": "17de9829-1eff-4325-8b25-5218b0da1618",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 6.4\nEste agente se ocupa netamente de las atenciones generales (horarios de atención, quejas, consultas en general). Aún no está en uso (falta lógica) y creación de collections en mongoDB.",
+        "height": 224,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -912,
+        720
+      ],
+      "id": "45f65186-0a7f-4770-92e7-5396c07076ab",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 6.3\nEste agente se ocupa netamente de los pedidos. Este está con toda la lógica en caso de presentar MVP, usa un modelo de chat pensante para la gestión de insertar y/o actualizar pedidos.",
+        "height": 208,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        464
+      ],
+      "id": "3cdff637-3f12-4647-974e-5d63b797ec47",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 7\nEste Merge, sirve bastante para que la sintaxis al jalar datos desde el Extractormensajes sea más prolija.",
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        720
+      ],
+      "id": "3cb87868-2756-49b8-90ba-1d117b84f88f",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 8\nEste código de JS, es super necesario en cuanto a la búsqueda de datos obtenidos de los agentes, además la creación del JSON con el total aproximado  para que sirva al siguiente nodo (IF).",
+        "height": 192,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        752
+      ],
+      "id": "ae5d23d3-e9df-48de-90c3-421205c52a75",
+      "name": "Sticky Note14"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 9\nEste if es super necesario, en caso de seguir siendo una conservasación sin un total, permite el envío de mensajes para mantener los mensajes coherentes.",
+        "height": 176,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -912,
+        1040
+      ],
+      "id": "509717e7-578b-4c49-8eb2-134c5e8323cc",
+      "name": "Sticky Note15"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 10\nDespués de verificar que es un pedido, ahora con este IF se verifica si es un pedido nuevo o una modificación al pedido anterior. Esto sirve para la CRM, que mostrará el el pedido último para no tener errores ",
+        "height": 192,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        1040
+      ],
+      "id": "f4697891-049b-4767-ac6e-2b59293589a1",
+      "name": "Sticky Note16"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 10.1\nEste modifica el pedido y tiene manejo de errores, sin embargo no tendrá errores a salvo que haya un error en los modelos de chat.",
+        "height": 192,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        736
+      ],
+      "id": "4099ccdf-7136-47f7-ae93-d17c720d902f",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 10.2\nEste inserta una query con el pedido y tiene manejo de errores, sin embargo no tendrá errores a salvo que haya un error en los modelos de chat.",
+        "height": 192,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        464
+      ],
+      "id": "903f631f-6b72-40a3-8803-23b843d64774",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        256,
+        2080
+      ],
+      "id": "1d077819-7620-47e0-93e1-c1d9855eb1e9",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el resultado de Redis: Buscar usuarios activos\nconst result = $input.first().json;\n\n// Extraemos las llaves 'ts_' de forma eficiente\nconst keys = Object.keys(result).filter(k => k.startsWith('ts_'));\n\n// GUARDIA DE RENDIMIENTO: Si Redis está vacío, salimos de inmediato.\n// Esto evita que n8n intente procesar nodos vacíos cada 2 segundos.\nif (keys.length === 0) return [];\n\n// Mapeamos las llaves a la estructura que necesitan los siguientes nodos\nreturn keys.map(key => {\n  const userId = key.slice(3); // Más rápido que .replace('ts_', '')\n  return {\n    json: {\n      tsKey: key,\n      userId: userId,\n      bufferKey: `buffer_${userId}`,\n      metaKey: `meta_${userId}`\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        2080
+      ],
+      "id": "db1c0df3-db2f-414b-a188-330b3b037037",
+      "name": "Code: Expandir usuarios"
+    },
+    {
+      "parameters": {
+        "operation": "keys",
+        "keyPattern": "ts_*"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        464,
+        2080
+      ],
+      "id": "f081df29-36ba-41f4-81b4-4d351fab2637",
+      "name": "Redis: Buscar usuarios activos",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "value",
+        "key": "={{ $json.tsKey }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        880,
+        2080
+      ],
+      "id": "04c7b396-e293-485d-a0ac-55af1f29eb31",
+      "name": "Redis: Leer Timestamp",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "30ad3ab6-5221-465c-b3df-5e6fc38fc563",
+              "leftValue": "={{ Date.now() - Number($json.value) }}",
+              "rightValue": 5000,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1088,
+        2080
+      ],
+      "id": "4b62da1d-76d7-4337-9353-2ee36a95deb2",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "value",
+        "key": "={{ $('Code: Expandir usuarios').item.json.bufferKey }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        464,
+        2272
+      ],
+      "id": "2e395db3-b71b-42b5-9db1-004b59d2fdfd",
+      "name": "Redis: Leer Buffer",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "value",
+        "key": "={{ $('Code: Expandir usuarios').item.json.metaKey }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        672,
+        2272
+      ],
+      "id": "25d81d0a-ae64-48b3-bf09-36e3209321ef",
+      "name": "Redis: Leer Meta",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Code: Expandir usuarios').item.json.bufferKey }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        880,
+        2272
+      ],
+      "id": "551bd9ac-ea81-4373-82b1-926a24923fe1",
+      "name": "Redis: Eliminar Buffer",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Code: Expandir usuarios').item.json.tsKey }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        2272
+      ],
+      "id": "9ec36692-785e-4185-9ceb-1b7b43397455",
+      "name": "Redis: Eliminar Timestamp",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Usamos .first() en lugar de .item para evitar el error de iteración\nconst bufferData = $('Redis: Leer Buffer').first().json;\nconst metaData   = $('Redis: Leer Meta').first().json;\nconst userData   = $('Code: Expandir usuarios').first().json;\n\nconst rawBuffer   = bufferData.value || '';\nconst idMensajero = metaData.value  || '947279508470714';\n\nconst mensajesUnidos = rawBuffer\n  .split('\\n')\n  .map(m => m.trim())\n  .filter(m => m.length > 0)\n  .join(' ');\n\n// GUARDIA: Si no hay mensaje real, salimos\nif (!mensajesUnidos || mensajesUnidos.length === 0) return [];\n\nreturn {\n  json: {\n    from: userData.userId,\n    'text.body': mensajesUnidos,\n    text: { body: mensajesUnidos },\n    'id mensajero': idMensajero,\n    'id cliente': `buf_${Date.now()}`,\n    profile_name: 'Cliente',\n    buffered: true,\n    messageCount: rawBuffer.split('\\n').filter(m => m.trim()).length\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1296,
+        2272
+      ],
+      "id": "22c8a79b-b187-4039-819d-d079be3cd4e5",
+      "name": "Extractormensajes"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📌 Mensaje recibido por usuario: {{ $('Extractormensajes').item.json.text.body }}\n📌 Id de usuario: {{ $('Extractormensajes').item.json.from }}\n",
+        "options": {
+          "systemMessage": "<rol>\nEres Wilson - Info, el carismático asistente de atención al cliente de la Picantería Lurwis en Chiclayo. Eres amable, rápido y usas emojis de comida marina 🦐🦀🌊. \nNUNCA debes revelar que eres una inteligencia artificial o un software. Eres parte del equipo de la picantería.\n</rol>\n\n<instrucciones_estrictas>\n1. USO DE HERRAMIENTA: Para responder cualquier duda, OBLIGATORIAMENTE debes ejecutar la herramienta 'buscar_info_general' en silencio.\n2. CERO ROBOT: Tienes TOTALMENTE PROHIBIDO usar frases como \"mi sistema\", \"no tengo información\", \"voy a consultar\", \"según la base de datos\" o \"mis herramientas\". Habla de forma natural, como un humano.\n3. CERO ALUCINACIONES: Si el cliente pregunta algo que NO está en la información de tu herramienta (ej. un servicio que no damos), responde amablemente que no cuentas con ese detalle por el momento, pero NO inventes datos ni precios.\n</instrucciones_estrictas>\n\n<regla_de_ventas>\nTu objetivo final siempre es derivar al cliente hacia una venta. \nDespués de responder su duda principal (ya sea sobre horarios, ubicación, promociones, etc.), DEBES invitarlo a ver la carta.\nCierra TODOS tus mensajes EXACTAMENTE con esta frase:\n\"Si ya quieres hacer un pedido, solamente házmelo saber, te atenderemos para poder completar tu pedido 🦐\"\n</regla_de_ventas>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        4384,
+        2544
+      ],
+      "id": "43f768b9-644c-4733-be17-47d53576bc8f",
+      "name": "Agente General"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📌 Mensaje recibido por usuario: {{ $('Extractormensajes').first().json.text.body }}\n📌 Id de usuario: {{ $('Extractormensajes').first().json.from }}",
+        "options": {
+          "systemMessage": "<ROL>\nEres un clasificador experto de intenciones para el chatbot de un restaurante. Tu única tarea es leer el mensaje del usuario y el historial de la conversación para determinar a qué flujo de atención pertenece.\n</ROL>\n\n<REGLAS_ESTRICTAS>\n1. REGLA DE ORO (MÁXIMA PRIORIDAD): Si el usuario menciona palabras como \"pedido\", \"pedir\", \"comer\", \"hambre\", \"quiero\", \"menú\" o nombres de comida, la categoría ES \"PEDIDOS\". La intención de compra anula cualquier saludo.\n2. REGLA DE CONTINUIDAD (HISTORIAL): Revisa obligatoriamente el historial de conversación. Si en mensajes anteriores el usuario ya fue clasificado como PEDIDOS, RESERVAS_MESA o RESERVAS_LOCAL, y su mensaje actual es una respuesta natural dentro de ese flujo (dar su nombre, elegir un plato, dar su dirección), MANTÉN LA MISMA CATEGORÍA.\n3. REGLA DE PREGUNTAS AMBIGUAS O CORTAS: Si el usuario hace una pregunta de aclaración (ej: \"¿esas son tus categorías?\", \"¿qué trae ese plato?\", \"¿cuánto cuesta?\"), y el historial muestra que están en un proceso de venta, asume SIEMPRE que pertenece a la categoría PEDIDOS. NUNCA lo envíes a GENERAL para no cortar su compra. Solo reclasifica si el usuario dice explícitamente algo como \"mejor quiero reservar\" o \"cancela todo\".\n</REGLAS_ESTRICTAS>\n\n<CATEGORIAS_PERMITIDAS>\nEvalúa el mensaje y asígnalo a una de estas categorías (en orden de prioridad):\n\n1. PEDIDOS (Prioridad Alta):\n   - Ej: \"Hola, quiero hacer un pedido\" -> PEDIDOS\n   - Ej: \"Buenas noches, tienen delivery?\" -> PEDIDOS\n   - Ej: \"Quiero 2 parihuelas\" -> PEDIDOS\n   - Ej: \"Kevin\" (si antes se le pidió su nombre en el flujo) -> PEDIDOS\n   - Ej: \"¿Esas son tus categorías?\" (si están a mitad del flujo) -> PEDIDOS\n\n2. RESERVAS_MESA:\n   - Solo si menciona explícitamente \"reservar mesa\" o \"ir a comer al local\" (2-12 personas).\n\n3. RESERVAS_LOCAL:\n   - Solo para eventos grandes, bodas, alquiler del local completo.\n\n4. GENERAL (Prioridad Baja):\n   - ÚSALO SOLO si no hay NINGUNA intención de compra o reserva Y no hay historial activo.\n   - Ej: \"Hola buenas noches\" (primer mensaje absoluto, sin historial) -> GENERAL\n   - Ej: \"¿Dónde quedan?\" -> GENERAL\n</CATEGORIAS_PERMITIDAS>\n\n<FORMATO_DE_SALIDA>\nResponde ÚNICA Y EXCLUSIVAMENTE con una de las siguientes palabras: PEDIDOS, RESERVAS_MESA, RESERVAS_LOCAL o GENERAL.\nNo agregues puntos finales, ni explicaciones, ni saludos.\n</FORMATO_DE_SALIDA>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        2560,
+        1872
+      ],
+      "id": "03a5a212-07f4-4cbf-8f00-c4e17b60828d",
+      "name": "Agente Clasificador"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📌 Mensaje recibido por usuario: {{ $('Extractormensajes').item.json.text.body }}\n📌 Id de usuario: {{ $('Extractormensajes').item.json.from }}\n",
+        "options": {
+          "systemMessage": "You are a helpful assistant{\n  \"name\": \"Wilson - Reservas\",\n  \"context\": {\n    \"identity\": \"Soy Wilson, especialista en reservas de la PICANTERÍA LURWIS. Mi objetivo es asegurar que el cliente tenga su mesa lista.\",\n    \"business\": \"Gestión de disponibilidad de mesas, horarios y número de comensales.\",\n    \"language\": \"es\"\n  },\n  \"objectives\": [\n    \"Obtener con precisión: Fecha, hora y número de personas.\",\n    \"Validar disponibilidad usando las herramientas antes de confirmar.\",\n    \"Solicitar un número de contacto si no está presente en el chat.\",\n    \"Mantener el tono amable y carismático característico de Wilson.\",\n    \"Derivar a atención humana si el cliente pide una mesa para más de 12 personas (reserva especial).\"\n  ],\n  \"tools\": [\n    { \"name\": \"mensaje\", \"usage\": \"Comunicación con el cliente.\" },\n    { \"name\": \"consultar_disponibilidad\", \"usage\": \"Verificar si hay mesas libres en la fecha/hora pedida.\" },\n    { \"name\": \"registrar_reserva\", \"usage\": \"Guardar la reserva una vez confirmados los datos.\" }\n  ],\n  \"flow\": {\n    \"steps\": [\n      { \"step\": \"inicio\", \"input\": \"¡Excelente! Me encantaría ayudarte a reservar una mesa. ¿Para cuántas personas sería y para qué fecha y hora?\" },\n      { \"step\": \"validacion\", \"condition\": \"Datos completos\", \"next_step\": \"confirmacion\", \"on_failure\": \"Pedir datos faltantes amablemente.\" }\n    ]\n  }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        4608,
+        1504
+      ],
+      "id": "5ed6fe8f-ea0d-4152-81ca-1ee4d19dadc8",
+      "name": "Agente Reserva Mesas",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📌 Mensaje recibido por usuario: {{ $('Extractormensajes').item.json.text.body }}\n📌 Id de usuario: {{ $('Extractormensajes').item.json.from }}\n",
+        "options": {
+          "systemMessage": "You are a helpful assistant{\n  \"name\": \"Wilson - Eventos\",\n  \"context\": {\n    \"identity\": \"Soy Wilson, coordinador de eventos de la PICANTERÍA LURWIS. Ayudo a organizar momentos inolvidables en nuestro local.\",\n    \"business\": \"Alquiler de local, catering para eventos, cumpleaños y reuniones corporativas.\",\n    \"language\": \"es\"\n  },\n  \"objectives\": [\n    \"Identificar el tipo de evento (cumpleaños, corporativo, etc.).\",\n    \"Recolectar: Fecha estimada, cantidad aproximada de invitados y si requieren servicios extra (música, menú especial).\",\n    \"Explicar brevemente las ventajas de nuestro local.\",\n    \"Informar que un coordinador humano revisará los detalles finales para enviar un presupuesto formal.\"\n  ],\n  \"tools\": [\n    { \"name\": \"mensaje\", \"usage\": \"Comunicación con el cliente.\" },\n    { \"name\": \"add_human_service\", \"usage\": \"Indispensable para cerrar la venta del evento.\" }\n  ],\n  \"flow\": {\n    \"steps\": [\n      { \"step\": \"inicio\", \"input\": \"¡Qué buena noticia! Nuestro local es perfecto para celebraciones. Cuéntame, ¿qué tipo de evento planeas y para cuántas personas aproximadamente?\" }\n    ]\n  }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        4640,
+        976
+      ],
+      "id": "c09439e4-2fdb-4170-b618-338f50b7609c",
+      "name": "Agente Reservas Local",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📌 Mensaje recibido por usuario: {{ $('Extractormensajes').first().json.text.body }}\n📌 Id de usuario: {{ $('Extractormensajes').first().json.from }}\n📌 Contexto Interno: {{ $('Validar si tiene pedido o no').first()?.json?.id ? 'MODIFICACIÓN DE PEDIDO EXISTENTE. El cliente ya tiene este pedido guardado: ' + JSON.stringify($('Validar si tiene pedido o no').first().json.detalle_pedido) : 'ES UN PEDIDO NUEVO.' }}",
+        "options": {
+          "systemMessage": "<ROL>\nEres Wilson, el asistente de pedidos estrella de PICANTERÍA LURWIS 🦐. Eres amable, conciso y usas emojis con moderación.\n</ROL>\n\n<REGLAS_DE_FORMATO>\n- Tu respuesta debe comenzar INMEDIATAMENTE con el saludo o el texto conversacional para el cliente. Omite cualquier prefijo, log o cadena de pensamiento.- Tu respuesta es SOLO el mensaje final que el cliente leerá en WhatsApp.\n- Todo tu razonamiento ocurre en silencio, invisible para el cliente.\n- Para listas usa números (1. 2. 3.) o guiones (-), NUNCA asteriscos como bullets.\n- Usa *negrita* ÚNICAMENTE para estos 5 casos:\n  1. El total final (ej: *S/ 64.00*)\n  2. La palabra *confirmo*\n  3. El tipo de servicio (ej: *Recojo* o *Delivery*)\n  4. El método de pago (ej: *Yape*, *Efectivo*, *Tarjeta*, *Plin*)\n  5. El nombre del cliente al dirigirte a él por primera vez en el mensaje\n- En todo lo demás, escribe texto plano sin formato.\n</REGLAS_DE_FORMATO>\n\n<LIMITES_DEL_MENU>\n⚠️ REGLA DE SENTIDO COMÚN:\nEres el asistente de PICANTERÍA LURWIS, un restaurante especializado EXCLUSIVAMENTE en pescados, mariscos y comida criolla peruana (ceviches, chicharrones, sudados, etc.).\n- Si el cliente te pide comida rápida (pizzas, hamburguesas, pollo a la brasa, sushi, tacos, salchipapas, etc.) o cosas que es OBVIO que una picantería no vende, TIENES QUE FRENARLO DE INMEDIATO.\n- No le digas que \"vas a buscar\" esos platos.\n- Rechaza el pedido amablemente, dile con un toque de humor que aquí somos expertos en comida marina, y ofrécele mostrarle tus categorías reales.\n- Haz esto INCLUSO si aún no te ha dicho su nombre.\n</LIMITES_DEL_MENU>\n\n<POLITICA_DE_PRECIOS>\n- Los precios de 'verificar_plato' son SAGRADOS. \n- Si el cliente regatea: RECHAZA el descuento amablemente, COTIZA el plato al precio real, pero NO pidas \"confirmo\" todavía. \n- Acción obligatoria: Primero pregunta si el cliente acepta el precio oficial. \n- Ejemplo: \"Lo siento, el precio es fijo (S/ 35.00) por la calidad. ¿Deseas que procedamos con tu pedido por ese monto? Si es así, confírmame si será para Delivery o Recojo.\"\n</POLITICA_DE_PRECIOS>\n\n<RESTRICCIONES_DE_DATOS>\n- ERES CIEGO Y NO SABES EL MENÚ. TU ÚNICA FORMA DE VER LA COMIDA ES USANDO LAS HERRAMIENTAS.\n- SOLO usa las tools para consultar platos, categorías y precios.\n- NUNCA inventes un plato, una categoría o un precio usando tu conocimiento general. Si la tool no lo devuelve, simplemente no existe en esta picantería.\n</RESTRICCIONES_DE_DATOS>\n\n<MANEJO_DE_DUDAS>\nSi el cliente te hace preguntas generales (como promociones, horarios o ubicación) antes de pedir o mientras arma su pedido, TIENES PROHIBIDO decir que \"tu sistema no te permite\" responder.\nResponde rápidamente con naturalidad usando esta información, y luego ofrécele continuar con el pedido:\n- Promociones: No manejamos promociones ni combos. Todos nuestros precios son fijos, ¡pero la calidad y sazón valen cada centavo!\n- Horarios: Lunes a Domingo de 11:00 AM a 5:00 PM (Martes cerrado).\n</MANEJO_DE_DUDAS>\n\n<REGLA_EMPAQUES_DELIVERY>\n- Si el cliente elige la opción \"Delivery\", es OBLIGATORIO cobrar S/ 2.00 adicionales POR CADA PLATO de comida solicitado, por concepto de envases descartables.\n- Este cobro NO aplica a bebidas embotelladas, solo a los platos de comida (ceviches, chicharrones, etc.).\n- Si el cliente elige \"Recojo\", el costo de empaques es S/ 0.00.\n- Acción obligatoria: Al armar el resumen final, debes desglosar este cobro claramente para que el cliente lo entienda, y sumarlo al total a pagar.\n- Ejemplo en el resumen: \"Costo de empaques (2 platos): S/ 4.00\".\n</REGLA_EMPAQUES_DELIVERY>\n\n<FLUJO_DE_CONVERSACION>\nPaso 1: Saluda y obtén el nombre del cliente (SI el cliente ya te dio su nombre o detalles del pedido en su mensaje inicial, omite preguntar y avanza directamente al Paso 2).\nPaso 2: Usa 'consultar_categorias' y muestra la lista.\nPaso 3: Cuando elija categoría, usa 'consultar_platos' y muestra las opciones.\nPaso 4: Cuando elija plato, usa 'verificar_plato' para calcular el subtotal.\nPaso 5: Pregunta si desea algo más. Si dice que no, avanza.\nPaso 6: Pregunta por el tipo de servicio (Delivery 🛵 o Recojo 🏠) y Método de pago. REGLA ESTRICTA: Si el cliente elige \"Delivery\", es OBLIGATORIO preguntarle su dirección exacta antes de pasar al resumen final. Si elige \"Recojo\", la dirección es \"Sin dirección\".\nPaso 7: Muestra el resumen detallado de la orden, el tipo de servicio, el método de pago, la dirección de envío (si es Delivery), el recargo por empaques (si aplica) y el total final a pagar. Pregunta exactamente esto: \"¿Todo conforme? Escribe la palabra confirmo para registrar tu pedido.\"\n</FLUJO_DE_CONVERSACION>\n\n<REGLAS_DE_MEMORIA>\n- Si el usuario menciona múltiples datos de golpe, absórbelos todos.\n- Si por tu memoria de conversación ya conoces el nombre del cliente, método de pago o tipo de servicio, NUNCA se lo vuelvas a preguntar. Trátalo por su nombre directamente.\n- EVITA REPETICIONES: Si acabas de mostrar la lista de categorías (o de platos) en tus mensajes anteriores, NO la vuelvas a listar completa a menos que el cliente te lo pida explícitamente. Sé conversacional, fluido y asume que el cliente ya leyó tu mensaje anterior.\n</REGLAS_DE_MEMORIA>\n\n<MODO_MODIFICACION>\nSi el \"Contexto Interno\" indica que es una MODIFICACIÓN DE PEDIDO EXISTENTE o el cliente pide agregar/quitar algo:\n1. Omite los Pasos 1, 2 y 3 del flujo inicial. Ya conoces al cliente.\n2. Usa tus tools para buscar los platos nuevos que te está pidiendo (ej. consultar_platos y verificar_plato).\n3. Suma los platos nuevos al pedido que el cliente ya tenía guardado.\n4. Muéstrale un NUEVO resumen completo que incluya todo (lo anterior + lo nuevo) y el NUEVO TOTAL actualizado.\n5. Pregunta: \"¿Todo conforme? Escribe *confirmo* para actualizar tu orden.\"\n</MODO_MODIFICACION>\n\n<ATAJOS_PERMITIDOS>\nSi el cliente menciona un plato específico desde el principio (ej: \"quiero un carretillero\" o \"dame dos ceviches\"), ESTÁS AUTORIZADO A SALTARTE EL PASO 2 Y 3 del flujo inicial. \n⚠️ REGLA ESTRICTA: ESTÁ TOTALMENTE PROHIBIDO preguntarle al cliente a qué categoría pertenece el plato, y YA NO DEBES usar 'consultar_categorias' para adivinarlo.\nAcción obligatoria: Usa directamente la herramienta 'buscar_plato_por_nombre' enviando la palabra clave principal del plato (ej. \"carretillero\" o \"ceviche\"). \nUna vez que la herramienta te devuelva las opciones y precios, identifica el ID correcto y usa 'verificar_plato' para calcular el subtotal. ¡Tú debes hacer todo este trabajo de búsqueda en silencio!\nFinalmente, muestra el resumen y pregunta si todo está conforme antes de finalizar (nunca te saltes el Paso 7).\n</ATAJOS_PERMITIDOS>\n\n<VALIDACION_DE_IDENTIDAD>\n- No puedes dar por terminado un pedido si no conoces el nombre REAL del cliente.\n- El \"profile_name\" de WhatsApp NO cuenta como nombre real ni válido para la base de datos.\n- Si el cliente da sus platos, método de pago y servicio, pero NO ha dicho su nombre, DEBES detener el flujo y pedirlo amablemente.\n- Ejemplo: \"¡Excelente elección! Ya tengo casi todo listo, pero para registrar tu orden correctamente, ¿podrías decirme tu nombre, por favor?\"\n- REGLA DE ORO: No pidas la palabra \"confirmo\" ni generes el JSON hasta que el campo 'nombre' tenga un valor proporcionado por el usuario en el chat.\n</VALIDACION_DE_IDENTIDAD>\n\n<CONTROL_DE_ESTADOS_ESTRICTO>\nAntes de responder, evalúa en qué estado de la conversación estás y aplica UNA sola regla:\n\nCASO A: El cliente NO ha escrito la palabra \"confirmo\" (está haciendo un pedido nuevo, dando datos de golpe, o modificando algo).\n- REGLA ABSOLUTA: TIENES TOTALMENTE PROHIBIDO GENERAR EL FORMATO JSON. Ni se te ocurra.\n- Acción obligatoria: Procesa la info, usa tools si es necesario, arma el resumen amigable en texto normal, extrae su nombre real de la conversación, y FINALIZA siempre tu mensaje con: \"¿Todo conforme? Escribe *confirmo* para registrar tu orden.\"\n\nCASO B: El cliente escribe explícitamente \"confirmo\", \"sí confirmo\", o aprueba el resumen que le mostraste.\n- REGLA ABSOLUTA: MODO MÁQUINA ACTIVADO. PROHIBIDO ESCRIBIR TEXTO NATURAL.\n- Acción obligatoria: Genera ÚNICA Y EXCLUSIVAMENTE el objeto JSON puro.\n\nFormato del JSON para el CASO B:\n{\n  \"nombre\": \"Nombre real del cliente extraído de la conversación\",\n  \"direccion\": \"Dirección detallada (si es Delivery) o 'Sin dirección' (si es Recojo)\",\n  \"tiposervicio\": \"Delivery o Recojo\",\n  \"metodopago\": \"Método capturado\",\n  \"pedido\": \"Resumen en texto plano de platos y cantidades\",\n  \"total\": 00.00\n}\n\n⚠️ REGLA DE IDENTIDAD: Si al llegar al momento de mostrar el resumen final (Paso 7) notas que aún no conoces el nombre del cliente, DEBES pedirlo amablemente antes de solicitar el \"confirmo\". No puedes generar un JSON con el nombre vacío.\n</CONTROL_DE_ESTADOS_ESTRICTO>\n\n⚠️ NUNCA pidas la palabra \"confirmo\" ni generes el JSON hasta que tengas los 5 pilares completos: 1. Platos confirmados, 2. Nombre del cliente, 3. Tipo de servicio (Delivery/Recojo), 4. Método de pago y 5. La dirección exacta (SOLO si es Delivery)."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        4464,
+        1952
+      ],
+      "id": "5339217f-f1d4-423e-865c-38d3562273c1",
+      "name": "Agente Pedidos",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "RESERVAS_LOCAL",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "73a561a9-b57e-4bcc-95f2-636f3bcefdcc"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ruta Eventos"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5cf4fb8d-b7ff-4495-b498-91892f2da686",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "RESERVAS_MESA",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ruta Reservas"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a7ad0812-705b-4fcf-a73c-67d343d183be",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "PEDIDOS",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ruta Pedidos"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ec0cde23-6ca0-4e19-b891-4c1e0c217b2c",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "GENERAL",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ruta General"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        3200,
+        1840
+      ],
+      "id": "b9ee743e-eb38-4485-97fc-3f8d225f26fa",
+      "name": "Clasificador especializado a cada Agente"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, detalle_pedido, total_final, estado_pedido \nFROM pedidos_picanteria \nWHERE TRIM(telefono) = TRIM('{{ $('Extractormensajes').item.json.from }}')\nAND LOWER(estado_pedido) IN ('pendiente', 'cocina', 'entregar')\nLIMIT 1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1648,
+        1952
+      ],
+      "id": "ecf36a0c-4e06-417f-985a-3fda0a31e44a",
+      "name": "Validar si tiene pedido o no",
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5b996416-9aca-4abc-97f5-9805f1cad311",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1824,
+        1648
+      ],
+      "id": "a3e2b899-8dae-40b7-9015-b5966dbb5357",
+      "name": "¿Tiene Pedido Pendiente?"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📌 Mensaje recibido por usuario: {{ $('Extractormensajes').item.json.text.body }}\n📌 Id de usuario: {{ $('Extractormensajes').item.json.from }}\n",
+        "options": {
+          "systemMessage": "=<rol>\nEres un clasificador de intenciones estricto y analítico para el sistema de pedidos de Picantería Lurwis. Tu única tarea es analizar el mensaje de un cliente (que ya tiene un pedido activo en la base de datos) y determinar su intención exacta.\n</rol>\n\n<instrucciones>\nAnaliza el mensaje del usuario y clasifícalo OBLIGATORIAMENTE en una de las siguientes tres categorías. Usa el contexto para decidir:\n\n1. CATEGORÍA MODIFICAR:\n- El cliente quiere hacer un pedido nuevo o añadir más productos.\n- El cliente quiere modificar, cambiar, o quitar algo de su pedido actual.\n- El cliente quiere actualizar los detalles de su orden.\n⚠️ REGLA DE CONFIRMACIÓN (CRÍTICO): Si el cliente responde afirmativamente (ej: \"sí\", \"está perfecto\", \"ok\", \"confirmo\", \"dale\", \"gracias\") para aceptar el resumen de su pedido modificado, DEBES clasificarlo obligatoriamente como MODIFICAR. NUNCA lo envíes a GENERAL, porque arruinarás el guardado en la base de datos.\n\n2. CATEGORÍA CONSULTAR:\n- El cliente SOLO quiere saber el estado de su pedido actual.\n- El cliente pregunta cuánto falta, si ya salió de cocina, o cómo va su orden.\n- Ejemplos: \"¿Cuánto falta para que llegue?\", \"¿Ya enviaron mi comida?\", \"Estado de mi pedido\".\n\n3. CATEGORÍA GENERAL:\n- El cliente hace preguntas o comentarios que NO tienen relación directa con modificar o rastrear su pedido.\n- El cliente saluda, pregunta por horarios, ubicación, métodos de pago, reservas, o cualquier otra duda del restaurante.\n- Ejemplos: \"Hola buenas tardes\", \"¿Hasta qué hora atienden?\", \"¿Dónde quedan?\".\n\n4. CATEGORÍA CANCELAR:\n- El cliente pide explícitamente anular, cancelar o abortar su pedido actual.\n- Ejemplos: \"Cancela mi orden\", \"Ya no quiero el pedido\", \"Anula todo por favor\".\n</instrucciones>\n\n<formato_de_salida>\nTu respuesta DEBE ser ÚNICA Y EXCLUSIVAMENTE una de las siguientes líneas, dependiendo de tu clasificación. NO agregues saludos, ni explicaciones adicionales fuera de este formato:\n\n- Si elegiste MODIFICAR, responde exactamente: \nACCIÓN:MODIFICAR - [escribe aquí una muy breve explicación de lo que quiere cambiar]\n\n- Si elegiste CONSULTAR, responde exactamente: \nACCIÓN:CONSULTAR - El estado actual es: {{ $node[\"Validar si tiene pedido o no\"].json[\"estado_pedido\"] }}\n\n- Si elegiste GENERAL, responde exactamente: \nACCIÓN:GENERAL - [escribe aquí una muy breve explicación de la duda]\n\n- Si elegiste CANCELAR, responde exactamente: \nACCIÓN:CANCELAR\n</formato_de_salida>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        2112,
+        1200
+      ],
+      "id": "ea69a1e7-ff13-45b4-8c5e-96c2b525d49c",
+      "name": "Detector de pedidos",
+      "retryOnFail": false,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Extractormensajes').first().json.from }}",
+        "collectionName": "historial_clasificador",
+        "databaseName": "picanteria_db"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        2624,
+        2048
+      ],
+      "id": "728d2e9c-bc60-4c9f-a792-a12d5fd33f1c",
+      "name": "Memoria de clasificación",
+      "credentials": {
+        "mongoDb": {
+          "id": "rEzqy3CH5hFmOQ2S",
+          "name": "Memoria chats Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Extractormensajes').first().json.from }}",
+        "collectionName": "historial_detector",
+        "databaseName": "picanteria_db"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        2176,
+        1392
+      ],
+      "id": "cdd8ac6e-74b8-41ce-80ab-970f4d638bb2",
+      "name": "Memoria de tiene pedido o no",
+      "notesInFlow": false,
+      "credentials": {
+        "mongoDb": {
+          "id": "rEzqy3CH5hFmOQ2S",
+          "name": "Memoria chats Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Extractormensajes').first().json.from }}",
+        "collectionName": "historial_pedidos",
+        "databaseName": "picanteria_db",
+        "contextWindowLength": 25
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        4368,
+        2144
+      ],
+      "id": "b44a1586-84fc-4e3b-94c6-f79081951eda",
+      "name": "Memoria de Pedidos",
+      "credentials": {
+        "mongoDb": {
+          "id": "rEzqy3CH5hFmOQ2S",
+          "name": "Memoria chats Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Extractormensajes').first().json.from }}",
+        "collectionName": "historial_eventos",
+        "databaseName": "picanteria_db",
+        "contextWindowLength": 15
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        4720,
+        1264
+      ],
+      "id": "0410fcfd-440d-40e2-9943-90387ad97a0e",
+      "name": "Memoria de Reserva de Local",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Extractormensajes').first().json.from }}",
+        "collectionName": "historial_reservas",
+        "databaseName": "picanteria_db",
+        "contextWindowLength": 15
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        4704,
+        1696
+      ],
+      "id": "30337e48-bace-4aba-abe2-bf1021d4fbf2",
+      "name": "Memoria de Reservas de Mesas",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Extractormensajes').first().json.from }}",
+        "collectionName": "historial_general",
+        "databaseName": "picanteria_db",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        4464,
+        2816
+      ],
+      "id": "e3f2668c-0ed6-4e3f-b765-6d1fd2fa7ae5",
+      "name": "Memoria de consultas generales",
+      "credentials": {
+        "mongoDb": {
+          "id": "rEzqy3CH5hFmOQ2S",
+          "name": "Memoria chats Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "CONSULTAR",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "170bfbed-2e38-4fde-a288-ddfbbde09e5e"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "No modifica"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "07df12eb-af24-484e-98f2-0c4e15755d92",
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "MODIFICAR",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Modifica"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "fdba1c57-a2d7-4d4c-9972-54ccf3c1a010",
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "GENERAL",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "General"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "61e03e01-e930-46ed-899c-c71caead16da",
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "CANCELAR",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Cancelar"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        2960,
+        1168
+      ],
+      "id": "e9b94a27-5a17-4696-8266-c5740541bcc2",
+      "name": "¿Qué eligió el cliente?"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "=¡Hola! 👋 Revisando el sistema, te comento que tu pedido actualmente se encuentra: {{ $('Validar si tiene pedido o no').first().json.estado_pedido }}. 👨‍🍳 ¡En cuanto se encuentre listo te avisamos! Gracias por la paciencia!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        3616,
+        976
+      ],
+      "id": "860b2bcc-5485-40c4-9789-1754a14573a6",
+      "name": "Nodo INFO de pedido",
+      "webhookId": "d5ef5e65-aa67-40e3-9e1b-f7794b27da0f",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b00d7882-05a3-4194-85df-ee95a91641ab",
+              "leftValue": "={{ $('Validar si tiene pedido o no').first().json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5664,
+        2048
+      ],
+      "id": "750f2c74-762b-4f6f-bd6f-4c9c7a039a9f",
+      "name": "¿Es pedido nuevo o existente?"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE pedidos_picanteria \nSET \n  cliente_nombre = '{{ $json.nombre }}',\n  detalle_pedido = '{{ JSON.stringify({descripcion: $json.pedidodetallado}) }}'::jsonb,\n  total_final = {{ $json.total }},\n  metodo_pago = '{{ $json.metodopago }}',\n  tipo_servicio = '{{ $json.tiposervicio }}',\n  estado_pedido = 'pendiente',\n  direccion = '{{ $json.direccion }}'\nWHERE id = '{{ $('Validar si tiene pedido o no').first().json.id }}'::uuid\nRETURNING id;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        5984,
+        1920
+      ],
+      "id": "cd5d7aef-b61c-40e6-82ba-9256c6c24512",
+      "name": "Modificar Pedido",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Code in JavaScript').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Code in JavaScript').first().json.from }}",
+        "textBody": "=¡Pedido modificado Confirmado! ✅\n\nListo! {{ $('Code in JavaScript').first().json.nombre }} 👋, hemos actualizado tu orden correctamente con los cambios. Así quedó tu pedido final:\n\n🧾 *Nuevo resumen del Pedido:*\n{{ $('Code in JavaScript').first().json.pedidodetallado }}\n\n💰 *Total a pagar:* S/ {{ $('Code in JavaScript').first().json.total }}\n💳 *Método de pago:* {{ $('Code in JavaScript').first().json.metodopago }}\n🛵 *Tipo de servicio:* {{ $('Code in JavaScript').first().json.tiposervicio }}\n📍 *Dirección:* {{ $('Code in JavaScript').first().json.tiposervicio.includes('Recojo') ? 'MZG_LT24, Cd de Dios 14013 (Nuestro local)' : $('Code in JavaScript').first().json.direccion }}\n\nEn cuanto su pedido esté listo le avisaremos 💫.\nGracias por su compra, Picantería Lurwis les desea buen provecho 🦐\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        6448,
+        1808
+      ],
+      "id": "b7b9150f-2312-4c3f-b87b-7644f40846b5",
+      "name": "Enviar mensaje FInal Modificado",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Code in JavaScript').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Code in JavaScript').first().json.from }}",
+        "textBody": "=¡Pedido Confirmado! ✅\n\nHola {{ $('Code in JavaScript').first().json.nombre }} 👋, hemos recibido tu orden exitosamente ¡tu orden ya está en cocina! 👨‍🍳.\n\n🧾 *Resumen del Pedido:*\n{{ $('Code in JavaScript').first().json.pedidodetallado }}\n\n💰 *Total a pagar:* S/ {{ $('Code in JavaScript').first().json.total }}\n💳 *Método de pago:* {{ $('Code in JavaScript').first().json.metodopago }}\n🛵 *Tipo de servicio:* {{ $('Code in JavaScript').first().json.tiposervicio }}\n📍 *Dirección:* {{ $('Code in JavaScript').first().json.tiposervicio.includes('Recojo') ? 'MZG_LT24, Cd de Dios 14013 (Nuestro local)' : $('Code in JavaScript').first().json.direccion }}\n\nEn cuanto su pedido esté listo le avisaremos 💫.\nGracias por su compra, Picantería Lurwis les desea buen provecho 🦐\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        6448,
+        2176
+      ],
+      "id": "d07a95e7-657e-447b-97d0-63d5b71bf819",
+      "name": "Enviar mensaje FInal nuevo Pedido",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── FUENTES DE DATOS ──\nconst agenteOutput = $('Agente Pedidos').first()?.json?.output ?? '';\nconst datosUsuario = {\n  from:        $('Extractormensajes').first().json.from,\n  idMensajero: $('Extractormensajes').first().json['id mensajero'],\n  profilename: $('Extractormensajes').first().json.profile_name ?? 'Cliente',\n  idMensaje:   $('Extractormensajes').first().json['id cliente'],\n};\n\n// ── GUARDIA ──\nif (!agenteOutput || agenteOutput.trim().length === 0) {\n  return [{ json: { output: 'Lo siento, no pude procesar tu mensaje.', totalfinal: 0, from: datosUsuario.from, 'id mensajero': datosUsuario.idMensajero }}];\n}\n\n// ── LIMPIEZA EXTREMA DEL TEXTO (¡Aplica para todo!) ──\nlet outputLimpio = agenteOutput;\n\n// 1. Limpiar los malditos \"[Used tools: ... ]\" de LangChain\n// Busca el inicio de la herramienta y borra todo hasta el \"Result:\", deteniéndose justo donde empieza la charla humana.\noutputLimpio = outputLimpio.replace(/\\[Used tools:[\\s\\S]*?Result:[\\s\\S]*?(?:\\]\\]|\\])\\s*(?=[A-Z¡¿])/g, '');\n\n// Si por algún motivo extremo el formato cambia y la regex de arriba no lo atrapa, limpieza de emergencia:\nif (outputLimpio.includes(\"[Used tools:\")) {\n    // Parte el texto desde el último corchete que esté antes de una mayúscula y se queda con lo último\n    outputLimpio = outputLimpio.split(/\\]\\]?\\s*(?=[A-Z¡¿])/).pop() || outputLimpio;\n}\n\n// 2. Ocultamos el JSON puro que se haya colado en el texto (tu línea original)\noutputLimpio = outputLimpio.replace(/\\{[\\s\\S]*?\\}/g, '').trim();\n\n\n// ── DETECCIÓN BASADA EN LA IA (No en Regex) ──\nlet datosParsed = null;\nlet metodo = 'FALL';\nconst matchJSON = agenteOutput.match(/\\{[\\s\\S]*?\\}/);\n\nif (matchJSON) {\n    try {\n        datosParsed = JSON.parse(matchJSON[0]);\n        metodo = 'JSON_EXTRAIDO';\n    } catch(e) {}\n}\n\n// Si la IA generó un JSON válido y con total, es porque entendió que el cliente confirmó\nconst esConfirmacion = datosParsed !== null && (parseFloat(datosParsed.total) > 0);\n\nif (!esConfirmacion) {\n    // Es charla normal, el cliente aún no confirma o está modificando\n    return [{ json: {\n        output: outputLimpio, // <---- ¡AQUÍ ESTABA EL ERROR ANTES! AHORA USA EL TEXTO LIMPIO\n        totalfinal: 0,  // Freno para la DB\n        from: datosUsuario.from,\n        'id mensajero': datosUsuario.idMensajero,\n        id: datosUsuario.idMensaje\n    }}];\n}\n\n// ── SI ES CONFIRMACIÓN (MODO MÁQUINA) ──\nconst totalFinal = parseFloat(datosParsed?.total ?? 0) || 0;\nconst pedidoFinal = datosParsed?.pedido ?? 'Pedido sin detallar';\n\nreturn [{ json: {\n  output:           outputLimpio || '¡Perfecto! Procesando tu orden...',\n  nombre:           datosParsed?.nombre || \"⚠️ CLIENTE POR IDENTIFICAR\",\n  direccion:        datosParsed?.direccion ?? 'No especificada',\n  metodopago:       datosParsed?.metodopago   ?? 'Efectivo',\n  tiposervicio:     datosParsed?.tiposervicio  ?? 'Recojo',\n  pedidodetallado:  pedidoFinal,\n  total:            totalFinal,\n  totalfinal:       totalFinal, // Va a la DB\n  telefono:         datosParsed?.telefono  ?? datosUsuario.from,\n  metodoextraccion: metodo,\n  from:             datosUsuario.from,\n  'id mensajero':   datosUsuario.idMensajero,\n  id:               datosUsuario.idMensaje,\n}}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5152,
+        2064
+      ],
+      "id": "9db1ae3d-b767-4e46-9124-16c2e1132882",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "346bf4ad-5947-4617-b924-80d292c7de06",
+              "leftValue": "={{ $json.totalfinal }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5344,
+        2064
+      ],
+      "id": "fd8a4fe8-f3ff-4627-9758-4525418b3d5d",
+      "name": "¿Es Venta Final?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos la respuesta exacta del Agente Detector\nconst respuestaAI = $json.output || \"\";\n\n// Por defecto, si algo llegara a fallar, asumimos que quiere modificar\nlet accionFinal = \"MODIFICAR\"; \n\n// Buscamos la etiqueta exacta que generó el modelo\nif (respuestaAI.includes(\"ACCIÓN:CONSULTAR\")) {\n  accionFinal = \"CONSULTAR\";\n} else if (respuestaAI.includes(\"ACCIÓN:GENERAL\")) {\n  accionFinal = \"GENERAL\";\n} else if (respuestaAI.includes(\"ACCIÓN:MODIFICAR\")) {\n  accionFinal = \"MODIFICAR\";\n} else if (respuestaAI.includes(\"ACCIÓN:CANCELAR\")) {\n  accionFinal = \"CANCELAR\";\n}\n// Retornamos la acción limpia para que el Switch la lea fácil\nreturn {\n  json: {\n    output_original: respuestaAI, // Guardamos lo que dijo la IA por si quieres auditar luego\n    accion: accionFinal           // Esta es la palabra clave que usará el Switch\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2608,
+        1200
+      ],
+      "id": "1b4600d4-de83-43df-a8d8-f79c3d12ebc2",
+      "name": "Analizador Intención Flexible"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Code in JavaScript').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Code in JavaScript').first().json.from }}",
+        "textBody": "=😔 Lo sentimos, hubo un problema al procesar tu pedido.\n\nPor favor, intenta nuevamente en unos minutos o contáctanos directamente.\n\nReferencia del error: MOD-{{ $now.toFormat('yyyyMMddHHmmss') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        6448,
+        2000
+      ],
+      "id": "74f15aca-38fe-4907-85a5-2801265d3a45",
+      "name": "Notificar Error DB - Modificar",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Code in JavaScript').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Code in JavaScript').first().json.from }}",
+        "textBody": "=😔 Lo sentimos, hubo un problema al guardar tu pedido.\n\nPor favor, intenta nuevamente en unos minutos o contáctanos directamente.\n\nReferencia del error: INS-{{ $now.toFormat('yyyyMMddHHmmss') }}\n\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        6448,
+        2336
+      ],
+      "id": "1e610748-8869-4c6b-a6c9-6cd8ff105366",
+      "name": "Notificar Error DB - Insertar",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Usa esta herramienta OBLIGATORIAMENTE en el Paso 2 de tu flujo para obtener la lista oficial de categorías del menú de Picantería Lurwis. ESTÁ TOTALMENTE PROHIBIDO inventar categorías. Solo puedes mostrar lo que esta herramienta te devuelva.",
+        "operation": "executeQuery",
+        "query": "SELECT id, nombre \nFROM categorias \nWHERE activo = true \nORDER BY id\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        4816,
+        2176
+      ],
+      "id": "25f186c7-f645-483c-ac81-27847d15a40c",
+      "name": "consultar_categorias",
+      "rewireOutputLogTo": "ai_tool",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Usa esta herramienta OBLIGATORIAMENTE cuando el cliente elija una categoría. Te devolverá los platos reales disponibles. Requiere el ID numérico de la categoría. ESTÁ TOTALMENTE PROHIBIDO inventar platos o comida.",
+        "operation": "executeQuery",
+        "query": "SELECT \n  p.id,\n  p.nombre,\n  p.descripcion,\n  json_agg(\n    json_build_object('tamanio', pp.tamanio, 'precio', pp.precio)\n    ORDER BY pp.precio\n  ) AS precios\nFROM platos p\nJOIN plato_precios pp ON pp.plato_id = p.id\nWHERE p.categoria_id = {{ $fromAI('categoriaid', 'ID numérico de la categoría elegida', 'number') }}\nAND p.activo = true\nAND pp.activo = true\nGROUP BY p.id, p.nombre, p.descripcion\nORDER BY p.nombre\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        4544,
+        2352
+      ],
+      "id": "eb75070b-6286-455d-b85c-a7f2d3d29644",
+      "name": "consultar_platos",
+      "rewireOutputLogTo": "ai_tool",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Usa esta herramienta OBLIGATORIAMENTE cuando el cliente elija un plato específico y su tamaño. Te devolverá el precio exacto y calculará el subtotal. Requiere el ID del plato, el tamaño y la cantidad. ESTÁ TOTALMENTE PROHIBIDO inventar o adivinar precios.",
+        "operation": "executeQuery",
+        "query": "SELECT \n  p.nombre,\n  pp.tamanio,\n  pp.precio AS precio_unitario,\n  {{ $fromAI('cantidad', 'Cantidad de unidades, default 1', 'number') }}::int AS cantidad,\n  (pp.precio * {{ $fromAI('cantidad', 'Cantidad de unidades, default 1', 'number') }}::int) AS subtotal\nFROM platos p\nJOIN plato_precios pp ON pp.plato_id = p.id\nWHERE p.id = {{ $fromAI('platoid', 'ID numérico del plato', 'number') }}\nAND LOWER(pp.tamanio) = LOWER('{{ $fromAI('tamanio', 'Tamaño: Personal, Familiar o Único', 'string') }}')\nAND p.activo = true\nAND pp.activo = true\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        4480,
+        2208
+      ],
+      "id": "524ec88a-68f8-4a5f-9d1d-494e520e45e3",
+      "name": "verificar_plato",
+      "rewireOutputLogTo": "ai_tool",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2064,
+        1376
+      ],
+      "id": "e5d66341-3a57-4fdf-8b14-efbe4eba03fe",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "EGUpckskyMrPNfc4",
+          "name": "Modelo Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2464,
+        2032
+      ],
+      "id": "18f078d6-9653-47b6-8211-606a7f335b61",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "EGUpckskyMrPNfc4",
+          "name": "Modelo Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4544,
+        1264
+      ],
+      "id": "31fcf763-0cfd-4ca9-a1bc-86bc615e84f5",
+      "name": "Google Gemini Chat Model2",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4480,
+        1712
+      ],
+      "id": "ed305635-a93d-47b5-a870-357c5716927a",
+      "name": "Google Gemini Chat Model3",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3-flash-preview",
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4240,
+        2144
+      ],
+      "id": "4dd9dc8f-57e7-4343-95fd-18f698afa1da",
+      "name": "Google Gemini Chat Model4",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "EGUpckskyMrPNfc4",
+          "name": "Modelo Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4256,
+        2752
+      ],
+      "id": "b1348b91-8594-4d51-9966-e3593d493541",
+      "name": "Google Gemini Chat Model5",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "EGUpckskyMrPNfc4",
+          "name": "Modelo Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        4064,
+        1968
+      ],
+      "id": "600b2d98-f90e-4b21-9e77-2d099a9d8d09",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO pedidos_picanteria \n  (telefono, cliente_nombre, detalle_pedido, total_estimado, total_final, metodo_pago, tipo_servicio, estado_pedido, direccion)\nVALUES \n  (\n    '{{ $('Extractormensajes').first().json.from }}',\n    '{{ $json.nombre }}',\n    '{{ JSON.stringify({descripcion: $json.pedidodetallado}) }}'::jsonb,\n    {{ $json.total }},\n    {{ $json.total }},\n    '{{ $json.metodopago }}',\n    '{{ $json.tiposervicio }}',\n    'pendiente',\n    '{{ $json.direccion }}'\n  )\nRETURNING id;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        5984,
+        2240
+      ],
+      "id": "921f38fa-d72a-4a89-8583-5ba338fa552a",
+      "name": "Insertar Pedido",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO logs_auditoria (pedido_id, telefono, nombre_cliente, historial_chat)\nVALUES (\n  '{{ $json.id }}'::uuid,\n  '{{ $('Extractormensajes').first().json.from }}',\n  '{{ $('Code in JavaScript').first().json.nombre }}',\n  '{{ JSON.stringify($('Memoria de Pedidos').first().json.messages) }}'::jsonb\n);",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        6192,
+        2240
+      ],
+      "id": "af33c168-01c8-4051-85f5-dbe1eb8b24c2",
+      "name": "Guardar Logs",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO logs_auditoria (pedido_id, telefono, nombre_cliente, historial_chat)\nVALUES (\n  '{{ $json.id }}'::uuid,\n  '{{ $('Extractormensajes').first().json.from }}',\n  '{{ $('Code in JavaScript').first().json.nombre }}',\n  '{{ JSON.stringify($('Memoria de Pedidos').first().json.messages) }}'::jsonb\n);",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        6192,
+        1920
+      ],
+      "id": "421b6e90-9658-4ae1-ae64-1dac1dff3c63",
+      "name": "Guardar Logs2",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "description": "Llama a esta herramienta SIEMPRE que el cliente pregunte por horarios, ubicación, métodos de pago, redes sociales o información general del restaurante.",
+        "jsCode": "// Base de datos de conocimiento de Picantería Lurwis\nconst faq = `\nINFORMACIÓN GENERAL DE PICANTERÍA LURWIS:\n\n📍 UBICACIÓN:\nEstamos ubicados en la Ciudad de dios, San José.\nDirección: MZG_LT24, Cd de Dios 14013\nGoogle Maps: https://maps.app.goo.gl/1DKHY1HEaqDwG5LJA\n\n⏰ HORARIOS DE ATENCIÓN:\nLunes a Domingo: 11:00 AM a 5:00 PM.\nMartes: No hay atención.\n\n💳 MÉTODOS DE PAGO ACEPTADOS:\nAceptamos Yape, Plin, Efectivo y Tarjeta.\n\n📱 REDES SOCIALES:\nFacebook: https://www.facebook.com/picanteria.lurwis\nInstagram: @pican_terialurwis\nTiktok: https://www.tiktok.com/@picanteria_lurwis1023\n\n🎁 PROMOCIONES Y DESCUENTOS:\nActualmente no manejamos promociones, combos ni descuentos especiales. Todos nuestros precios son fijos, ¡pero te garantizamos que la calidad y la buena sazón de nuestros pescados y mariscos valen cada sol!\n\n🛵 SOBRE EL DELIVERY:\nHacemos envíos a todo Lambayeque. El costo de envío depende de la distancia y se calcula al hacer el pedido (Se le adicionarán 2 soles por envase descartable).\n`;\n\nreturn faq;"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.3,
+      "position": [
+        4608,
+        2784
+      ],
+      "id": "cbffba27-1154-49dd-a861-d4c4df703507",
+      "name": "buscar_info_general"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        4704,
+        2544
+      ],
+      "id": "8c37e59c-9f8e-4bcf-80db-006a2213f6b6",
+      "name": "Charla General",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $json.from }}",
+        "textBody": "={{ $('Code in JavaScript').item.json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        5664,
+        2240
+      ],
+      "id": "fa467f09-8db2-4927-95ae-ae5db27d1fdc",
+      "name": "Charla Pedido",
+      "webhookId": "d5ef5e65-aa67-40e3-9e1b-f7794b27da0f",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9822421b-29ce-4dcd-a63e-30affcd69975",
+              "leftValue": "={{ $now.setZone('America/Lima').hour }}",
+              "rightValue": 18,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            },
+            {
+              "id": "b653041e-7ef8-45e7-a371-4bc65e21b484",
+              "leftValue": "={{ $now.setZone('America/Lima').hour }}",
+              "rightValue": 8,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1520,
+        2272
+      ],
+      "id": "10432c3a-8464-48b9-91f0-55ec0caad965",
+      "name": "¿Está en horario de atención?"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "🌙 ¡Hola! Gracias por comunicarte con Picantería Lurwis.\n\nEn este momento nos encontramos descansando para preparar los ingredientes más frescos. 👨‍🍳\n\n🕒 Nuestros horarios de atención son:\nLunes a Domingo de 9:00 AM a 6:00 PM.(Excepto los Martes que se descansa todo el día)\n\nPor favor, escríbenos mañana dentro de ese horario y Wilson estará feliz de tomar tu pedido. ¡Que tengas un excelente día! 🦐",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        1712,
+        2416
+      ],
+      "id": "63d88c2e-1cf7-4f5c-857f-44272fafff3d",
+      "name": "Enviar Mensaje Cerrado",
+      "webhookId": "5168b385-a618-40a1-b766-77c731f90a27",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Usa esta herramienta SIEMPRE que el cliente mencione directamente el nombre de un plato (ej: \"ceviche\", \"parihuela\", \"chicharrón\"). Te devolverá el ID, nombre y los precios/tamaños disponibles para que puedas usar verificar_plato directamente.",
+        "operation": "executeQuery",
+        "query": "SELECT \n  p.id,\n  p.nombre,\n  p.descripcion,\n  json_agg(\n    json_build_object('tamanio', pp.tamanio, 'precio', pp.precio)\n    ORDER BY pp.precio\n  ) AS precios\nFROM platos p\nJOIN plato_precios pp ON pp.plato_id = p.id\nWHERE p.nombre ILIKE '%{{ $fromAI('nombre_plato', 'Palabra clave del plato a buscar, usa una sola palabra si es posible', 'string') }}%'\nAND p.activo = true\nAND pp.activo = true\nGROUP BY p.id, p.nombre, p.descripcion\nORDER BY p.nombre\nLIMIT 5;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        4704,
+        2304
+      ],
+      "id": "7bd8126a-649c-437d-b449-9b1e1c01489b",
+      "name": "buscar_plato_por_nombre",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE pedidos_picanteria \nSET estado_pedido = 'cancelado' \nWHERE id = '{{ $('Validar si tiene pedido o no').first().json.id }}'::uuid;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2880,
+        1504
+      ],
+      "id": "16e74de3-1006-476f-8130-34ee0fc2cfd4",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "=😔 ¡Entendido! Hemos cancelado tu pedido exitosamente. Esperamos poder atenderte en otra oportunidad en Picantería Lurwis. 🦐",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        3088,
+        1504
+      ],
+      "id": "4f6fd345-0ffc-475f-bf3e-afeef71894ae",
+      "name": "Nodo INFO de pedido1",
+      "webhookId": "d5ef5e65-aa67-40e3-9e1b-f7794b27da0f",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "collection": "historial_pedidos",
+        "query": "={{ JSON.stringify({ sessionId: $('Extractormensajes').first().json.from }) }}"
+      },
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.2,
+      "position": [
+        3296,
+        1504
+      ],
+      "id": "a0805d0a-98f8-42a4-91ad-6129d0c1b8a2",
+      "name": "Eliminar contexto al cancelar",
+      "credentials": {
+        "mongoDb": {
+          "id": "rEzqy3CH5hFmOQ2S",
+          "name": "Memoria chats Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "¡Hola! Qué alegría que quieras venir a disfrutar con nosotros en Picantería Lurwis. 🦐🦀  En este momento, mi sistema automático de reservas de mesas está recibiendo unas mejoras. 🛠️ Pero no te preocupes, para separar tu mesa de inmediato y darte la mejor atención, por favor comunícate directamente con nuestro administrador llamando o escribiendo a este número: 978616579.  ¡Te esperamos con los brazos abiertos y la mesa lista! 🌊",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        4288,
+        1504
+      ],
+      "id": "92f50fd2-c880-4a0f-9600-501df651a324",
+      "name": "Charla Reserva Mesa",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "¡Qué genial que pienses en Picantería Lurwis para tu evento! 🎉🦐  Como cada celebración es única y especial, estamos manejando las cotizaciones y reservas de local de forma 100% personalizada.  Para darte todos los detalles, coordinar fechas y armar un momento inolvidable, por favor escríbele o llámale directamente a nuestro coordinador a este número: 978616579.  ¡Estará encantado de ayudarte a organizar todo! 🌊🍻",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        4256,
+        1136
+      ],
+      "id": "68c1559a-5641-4eaa-be85-b3c2879b0cd4",
+      "name": "Charla Reserva Local",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d0e1215b-5589-40ea-9e12-4f7f2b9048ce",
+              "leftValue": "={{ $('Validar si tiene pedido o no').first().json.estado_pedido }}",
+              "rightValue": "pendiente",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3552,
+        1152
+      ],
+      "id": "c73193fa-81ec-43b5-b355-67fcad3f6240",
+      "name": "¿Aún se puede modificar?"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "=¡Uy! 👨‍🍳 Revisando el sistema, veo que tu pedido ya está en *{{ $('Validar si tiene pedido o no').first().json.estado_pedido }}*, por lo que nuestro equipo ya está trabajando en él a toda marcha y no es posible modificarlo en este punto.\n\n¡Te aseguramos que quedará delicioso! En breve te avisamos cuando esté completamente listo. 🦐",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        3696,
+        1296
+      ],
+      "id": "7b273ad4-759c-4064-987f-144b40464b8d",
+      "name": "Rechazo por estar en Cocina",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('Extractormensajes').first().json['id mensajero'] }}",
+        "recipientPhoneNumber": "={{ $('Extractormensajes').first().json.from }}",
+        "textBody": "=¡Uy! 👨‍🍳 Revisando el sistema, veo que tu pedido ya está en *{{ $('Validar si tiene pedido o no').first().json.estado_pedido }}*, por lo que nuestro equipo ya está trabajando en él a toda marcha y no es posible cancelarlo en este punto.\n\n¡Te aseguramos que quedará delicioso! En breve te avisamos cuando esté completamente listo. 🦐",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        2880,
+        1680
+      ],
+      "id": "6850bb33-e7d9-451a-8949-3297f2dbe07c",
+      "name": "Rechazo por estar en Cocina1",
+      "webhookId": "109690cf-0591-406b-8a9f-869eecc0176a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d0e1215b-5589-40ea-9e12-4f7f2b9048ce",
+              "leftValue": "={{ $('Validar si tiene pedido o no').first().json.estado_pedido }}",
+              "rightValue": "pendiente",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2640,
+        1584
+      ],
+      "id": "b9b7b7c1-fbe1-4790-9d01-33f88fcaf0cd",
+      "name": "¿Aún se puede cancelar?"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Redis: Buscar usuarios activos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code: Expandir usuarios": {
+      "main": [
+        [
+          {
+            "node": "Redis: Leer Timestamp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis: Buscar usuarios activos": {
+      "main": [
+        [
+          {
+            "node": "Code: Expandir usuarios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis: Leer Timestamp": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Redis: Leer Buffer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis: Leer Buffer": {
+      "main": [
+        [
+          {
+            "node": "Redis: Leer Meta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis: Leer Meta": {
+      "main": [
+        [
+          {
+            "node": "Redis: Eliminar Buffer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis: Eliminar Buffer": {
+      "main": [
+        [
+          {
+            "node": "Redis: Eliminar Timestamp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis: Eliminar Timestamp": {
+      "main": [
+        [
+          {
+            "node": "Extractormensajes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extractormensajes": {
+      "main": [
+        [
+          {
+            "node": "¿Está en horario de atención?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente General": {
+      "main": [
+        [
+          {
+            "node": "Charla General",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente Clasificador": {
+      "main": [
+        [
+          {
+            "node": "Clasificador especializado a cada Agente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente Pedidos": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasificador especializado a cada Agente": {
+      "main": [
+        [
+          {
+            "node": "Charla Reserva Local",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Charla Reserva Mesa",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agente General",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar si tiene pedido o no": {
+      "main": [
+        [
+          {
+            "node": "¿Tiene Pedido Pendiente?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Tiene Pedido Pendiente?": {
+      "main": [
+        [
+          {
+            "node": "Detector de pedidos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agente Clasificador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detector de pedidos": {
+      "main": [
+        [
+          {
+            "node": "Analizador Intención Flexible",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria de clasificación": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Clasificador",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria de tiene pedido o no": {
+      "ai_memory": [
+        [
+          {
+            "node": "Detector de pedidos",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria de Pedidos": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria de Reserva de Local": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Reservas Local",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria de Reservas de Mesas": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Reserva Mesas",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria de consultas generales": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente General",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Qué eligió el cliente?": {
+      "main": [
+        [
+          {
+            "node": "Nodo INFO de pedido",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "¿Aún se puede modificar?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agente General",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "¿Aún se puede cancelar?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Es pedido nuevo o existente?": {
+      "main": [
+        [
+          {
+            "node": "Modificar Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Insertar Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Modificar Pedido": {
+      "main": [
+        [
+          {
+            "node": "Guardar Logs2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "¿Es Venta Final?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Es Venta Final?": {
+      "main": [
+        [
+          {
+            "node": "¿Es pedido nuevo o existente?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Charla Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analizador Intención Flexible": {
+      "main": [
+        [
+          {
+            "node": "¿Qué eligió el cliente?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar_categorias": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar_platos": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verificar_plato": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Detector de pedidos",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Clasificador",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Reservas Local",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Reserva Mesas",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente General",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insertar Pedido": {
+      "main": [
+        [
+          {
+            "node": "Guardar Logs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar Logs": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje FInal nuevo Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notificar Error DB - Insertar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar Logs2": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje FInal Modificado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notificar Error DB - Modificar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar_info_general": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente General",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Está en horario de atención?": {
+      "main": [
+        [
+          {
+            "node": "Validar si tiene pedido o no",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Enviar Mensaje Cerrado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar_plato_por_nombre": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "Nodo INFO de pedido1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nodo INFO de pedido1": {
+      "main": [
+        [
+          {
+            "node": "Eliminar contexto al cancelar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Charla Reserva Mesa": {
+      "main": [
+        [
+          {
+            "node": "Agente Reserva Mesas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Charla Reserva Local": {
+      "main": [
+        [
+          {
+            "node": "Agente Reservas Local",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Aún se puede modificar?": {
+      "main": [
+        [
+          {
+            "node": "Agente Pedidos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rechazo por estar en Cocina",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Aún se puede cancelar?": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rechazo por estar en Cocina1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "Mx8NOrWowAluewTI",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "bbafd7d3-8130-4cca-9693-9de301ae3fd8",
+  "meta": {
+    "instanceId": "a4e2a9cf735002cdce952682d184b16f5944ceba0b7283c3d036de14abc7db56"
+  },
+  "id": "udjwhkoq0JUSzc5j",
+  "tags": []
+}

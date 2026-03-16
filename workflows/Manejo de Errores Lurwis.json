@@ -1,0 +1,67 @@
+{
+  "name": "Manejo de Errores Lurwis",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a650563c-beb4-4b14-ade8-02389a972687",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "1055736730952072",
+        "recipientPhoneNumber": "51900769907",
+        "textBody": "=🔴 ¡ERROR EN EL BOT! Workflow: {{ $json.workflow.name }} ID Ejecución: {{ $json.execution.id }} Error: {{ $json.execution.error.message }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "4aca2ac1-fc06-4997-8208-dbf35b1b4918",
+      "name": "Send message",
+      "webhookId": "a2580cdf-e651-46f4-8397-caf39acd1ed9",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "2e670d24-5d02-4cfa-8087-63a6ce36e2bb",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a4e2a9cf735002cdce952682d184b16f5944ceba0b7283c3d036de14abc7db56"
+  },
+  "id": "Mx8NOrWowAluewTI",
+  "tags": []
+}

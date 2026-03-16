@@ -1,0 +1,167 @@
+{
+  "name": "Picantería Lurwis | Confirmación pedido",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE pedidos_picanteria \nSET estado_pedido = 'completado' \nWHERE id = '{{ $json.body.pedido_id }}'::uuid;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        448,
+        -192
+      ],
+      "id": "a6ac106f-5536-45d9-9710-c72e65b6c72d",
+      "name": "Marcar como Entregado",
+      "credentials": {
+        "postgres": {
+          "id": "5nRuBkRnPEOnj0KP",
+          "name": "Postgres Lurwis db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"status\": \"success\", \"message\": \"Sesión cerrada y pedido entregado\"}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1072,
+        -192
+      ],
+      "id": "6b749a12-d711-4e08-9c5a-e923cf4425ca",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "finalizar-pedido-picanteria",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        240,
+        -192
+      ],
+      "id": "4fb5c47b-3d86-4387-ba70-1ee4940353f1",
+      "name": "Webhook confirmar pedido",
+      "webhookId": "c04983bd-6303-4752-920f-5d6f21e03c6c"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "collection": "historial_pedidos",
+        "query": "={{ JSON.stringify({ sessionId: $('Webhook confirmar pedido').item.json.body.telefono }) }}"
+      },
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        -192
+      ],
+      "id": "226789cf-c388-4da7-bccf-d552923bda64",
+      "name": "Borrar Memoria",
+      "credentials": {
+        "mongoDb": {
+          "id": "rEzqy3CH5hFmOQ2S",
+          "name": "Memoria chats Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "1055736730952072",
+        "recipientPhoneNumber": "={{ $('Webhook confirmar pedido').item.json.body.telefono }}",
+        "textBody": "Tu pedido ya está listo y completado! Muchas gracias por tu preferencia, provecho.🦐",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        656,
+        -192
+      ],
+      "id": "26359550-4127-49d8-ab06-74e18a23f4a3",
+      "name": "Send message",
+      "webhookId": "033850e1-fdfb-4999-a242-5cf81609cb78",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "zJi8oUdszoG5oEqW",
+          "name": "WhatsApp account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Marcar como Entregado": {
+      "main": [
+        [
+          {
+            "node": "Send message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook confirmar pedido": {
+      "main": [
+        [
+          {
+            "node": "Marcar como Entregado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Borrar Memoria": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send message": {
+      "main": [
+        [
+          {
+            "node": "Borrar Memoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "8120146b-aa41-4b22-9de3-415240f17236",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a4e2a9cf735002cdce952682d184b16f5944ceba0b7283c3d036de14abc7db56"
+  },
+  "id": "aa09cqLTmj0znkq2",
+  "tags": []
+}

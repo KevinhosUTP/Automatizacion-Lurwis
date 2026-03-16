@@ -1,0 +1,640 @@
+{
+  "name": "Picantería Lurwis | Receptor",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## NOTA 1\n## Este webhook usa mi servidor para poder conectar con la app de META, cuenta con manejo de errores.\n",
+        "height": 528,
+        "width": 1248,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        416
+      ],
+      "typeVersion": 1,
+      "id": "827d2a04-53ee-413a-938c-9fea22fdbaa7",
+      "name": "Sticky Note",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 2\nEste IF es un identificador de mensajes vacíos, se ejecuta varias veces pero tiene un manejo de errores (El Respond to Webhook3)\n",
+        "height": 320,
+        "width": 352,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        448,
+        1152
+      ],
+      "typeVersion": 1,
+      "id": "141e5df9-37de-4b85-94b8-5ad61cf6dc2d",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 3 \nEste extractor de mensajes, limpia correctamente los datos quie se ocuparán para la automatización general, es como un filtrador de datos",
+        "height": 304,
+        "width": 368,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1072,
+        1088
+      ],
+      "typeVersion": 1,
+      "id": "3cd7e45d-c6e5-43f8-8fb6-36ec648809e9",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 4 \nEste Respond to webhook  luego del do nothing, sirve para filtrar ejecuciones y mandar el parámetro correcto a META (200)",
+        "height": 384,
+        "width": 640,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        928,
+        1456
+      ],
+      "id": "df2c4d62-8981-4f3f-8898-ea415b5e4128",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "content": "## NOTA PRINCIPAL\n## TODOS LOS AGENTES TIENEN MEMORIA EN MONGODB, CADA MEMORIA TIENE COLLECCIÓN PARA PODER GUARDAR CON PRECISIÓN Y PODER HACER LAS MÉTRICAS CORRECTAS PARA CADA UNO DE LOS DATOS. ADEMÁS LA CONEXIÓN A BASE DE DATOS FUE HECHA MEDIANTE CONEXIÓN STRING (SESSION POOLER) LA BASE DE DATOS TIENE LOS RSL PRESENTES (SEGURIDAD) PARA PODER CONECTAR CORRECTAMENTE EL CRM. EL CRM ESTÁ EN DESARROLLO, PERO CON ESTO YA PUEDE SALIR AL MERCADO EL MVP EN LO QUE SE DESARROLLA.",
+        "height": 336,
+        "width": 1968,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "21532130-40a0-4126-bf26-541a4350b86d",
+      "name": "Sticky Note19"
+    },
+    {
+      "parameters": {
+        "content": "## Manejo de errores totales a mi Whatsapp Personal\n## El \"Gateaway\" está conectado a un Error Workflow (to notify when this one errors) conectado a mi teléfono de WhatsApp personal.",
+        "width": 752,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2208,
+        0
+      ],
+      "id": "10d48c65-575b-42b9-b220-cafefd7f63cf",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "content": "## Falta poner lógica del restaurant (optimizar los prompts para cada uno de los agentes)\nSolamente está probada para ver si funciona correctamente, sería cuestión de cambiar el orden ya, ya funcionó, ahora toca ponerlo bonito xd.\n",
+        "width": 752
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2208,
+        192
+      ],
+      "id": "990fdcb7-17b3-4e56-b373-b75323346305",
+      "name": "Sticky Note21"
+    },
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": "meta-verify",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        256,
+        704
+      ],
+      "id": "c687a4c0-8cca-4255-b41d-587f7f51f51c",
+      "name": "Webhook",
+      "webhookId": "44c93f39-fc17-4ae4-b36e-034e7bdd40c4"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{$json.query[\"hub.challenge\"]}}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/plain"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        912,
+        512
+      ],
+      "id": "0e47fcf6-3a5f-4418-ad33-cf71743fa569",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Forbidden",
+        "options": {
+          "responseCode": 403
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        912,
+        704
+      ],
+      "id": "4245d1cd-951b-4f41-9536-fcf655e68b7e",
+      "name": "Respond to Webhook1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5d9ac9b3-d15a-49ad-9f03-89b72c08dcd5",
+              "leftValue": "={{ $json.query['hub.mode'] }}",
+              "rightValue": "=subscribe",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "60be3b15-627d-4378-a799-d7c4cc4f74ef",
+              "leftValue": "={{$json.query[\"hub.verify_token\"] }}",
+              "rightValue": "meta-verify",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        704,
+        688
+      ],
+      "id": "7efc3e7c-3ed7-43ca-b81f-0eebe62193e0",
+      "name": "Catch de errores"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c463b9e7-2319-44ba-9e57-507d16a11f22",
+              "leftValue": "={{ $json.body.entry[0].changes[0].value.messages }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b00bab50-8d7d-46f4-88a2-5ed16a9297ea",
+              "leftValue": "={{ $json.body.entry[0].changes[0].value.messages[0].text.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ac9d5b41-5d72-434b-992e-80066ce33802",
+              "leftValue": "={{ $json.body.entry[0].changes[0].value.statuses }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        576,
+        1280
+      ],
+      "id": "c89a9030-e6e6-4c71-9f23-714a75cac3d7",
+      "name": "Identificador de vacíos"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Forbidden",
+        "options": {
+          "responseCode": 403
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1376,
+        1680
+      ],
+      "id": "df9432c2-c31b-48db-888e-92e076f4df84",
+      "name": "Respond to Webhook3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75356e5c-6957-4351-a612-c67221c6fa10",
+              "name": "from",
+              "value": "={{$json.body.entry[0].changes[0].value.messages[0].from}}",
+              "type": "string"
+            },
+            {
+              "id": "7ebd4673-68ec-4189-9814-93405f886afd",
+              "name": "text.body",
+              "value": "={{$json.body.entry[0].changes[0].value.messages[0].text.body}}",
+              "type": "string"
+            },
+            {
+              "id": "8ac9f9ee-510d-478b-af08-671189414758",
+              "name": "id cliente",
+              "value": "={{$json.body.entry[0].changes[0].value.messages[0].id}}",
+              "type": "string"
+            },
+            {
+              "id": "a009233b-a823-4694-9ec9-5be5e3178e46",
+              "name": "id mensajero",
+              "value": "={{ $json[\"body\"][\"entry\"][\"0\"][\"changes\"][\"0\"][\"value\"][\"metadata\"][\"phone_number_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "fe63d1af-37fd-4dd4-a424-7c70727d8371",
+              "name": "profile_name",
+              "value": "={{ $json.body.entry[0].changes[0].value.contacts[0].profile.name }}",
+              "type": "string"
+            },
+            {
+              "id": "55f4258b-d9b7-4a9c-9127-398587ecfe76",
+              "name": "mensaje_real",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        1216
+      ],
+      "id": "8fe0dfdd-097d-40de-9ad0-40b8b1e7b249",
+      "name": "Extractormensajes"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        1568
+      ],
+      "id": "3064d16b-c5bb-4fa7-8aa5-fcf40e1d9136",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "={{ $json.timestampKey }}",
+        "value": "={{ String($json.timestamp) }}",
+        "expire": true,
+        "ttl": 30
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2288,
+        1216
+      ],
+      "id": "3d7b72bb-bbdf-422f-ade1-d21f9f9ac560",
+      "name": "Buffer: Timestamp",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      },
+      "notes": "Guarda el timestamp del último mensaje\n"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "={{ $json.bufferKey }}",
+        "value": "={{ String($json.bufferContent) }}",
+        "expire": true,
+        "ttl": 30
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2096,
+        1216
+      ],
+      "id": "73054b79-ee92-4f84-b436-af62b0439a0b",
+      "name": "Buffer: Guardar",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      },
+      "notes": "Guarda el buffer con TTL de 6 segundos"
+    },
+    {
+      "parameters": {
+        "jsCode": "let existingBuffer = '';\n\ntry {\n  const redisResult = $input.first()?.json;\n  existingBuffer = redisResult?.value || redisResult?.propertyName || '';\n} catch (e) {\n  existingBuffer = '';\n}\n\nconst extractorData = $('Extractormensajes').item.json;\nconst newMessage = extractorData?.text?.body || extractorData?.['text.body'] || '';\nconst userId = extractorData.from;\n\nconst updatedBuffer = existingBuffer\n  ? `${existingBuffer}\\n${newMessage}`\n  : newMessage;\n\nconst now = Date.now();\n\nreturn {\n  json: {\n    bufferKey: `buffer_${userId}`,\n    timestampKey: `ts_${userId}`,\n    metaKey: `meta_${userId}`,          // ← nuevo\n    bufferContent: updatedBuffer,\n    timestamp: now,\n    userId: userId,\n    idMensajero: extractorData['id mensajero'] || '',  // ← nuevo\n    profileName: extractorData.profile_name || 'Cliente', // ← nuevo\n    messageCount: updatedBuffer.split('\\n').length\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        1216
+      ],
+      "id": "75e1b3b8-1135-45bc-8cae-8511e4cce58c",
+      "name": "Buffer: Agregar Mensaje",
+      "notes": "Concatena el mensaje actual con el buffer existente\n"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "=buffer_{{ $('Extractormensajes').item.json.from }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1712,
+        1216
+      ],
+      "id": "fcb1fa70-0ffa-4802-8565-0dab063de115",
+      "name": "Buffer: Buscar",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "OK",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/plain"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        848,
+        1088
+      ],
+      "id": "921532dd-1924-42c0-8528-d20b92ed99c0",
+      "name": "Respond to Webhook2"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "={{ $json.metaKey }}",
+        "value": "={{ $json.idMensajero }}",
+        "expire": true,
+        "ttl": 120
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        1216
+      ],
+      "id": "de25a99b-ae43-40fb-94c8-66f380016915",
+      "name": "Buffer: Meta",
+      "credentials": {
+        "redis": {
+          "id": "LuOIeLYx2ps0SCoP",
+          "name": "Buffer Lurwis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## NOTA 5\nLógica para buffer, usa redis (memoria temporal), solamente procesador e identificador único su id. Se continúa en el workflow \"Procesador\"",
+        "height": 384,
+        "width": 1088
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1616,
+        1040
+      ],
+      "typeVersion": 1,
+      "id": "2e455ade-6411-47e0-91dc-ab62dd983595",
+      "name": "Sticky Note22"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Catch de errores",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Identificador de vacíos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Catch de errores": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identificador de vacíos": {
+      "main": [
+        [
+          {
+            "node": "Extractormensajes",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extractormensajes": {
+      "main": [
+        [
+          {
+            "node": "Buffer: Buscar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buffer: Timestamp": {
+      "main": [
+        [
+          {
+            "node": "Buffer: Meta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buffer: Guardar": {
+      "main": [
+        [
+          {
+            "node": "Buffer: Timestamp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buffer: Agregar Mensaje": {
+      "main": [
+        [
+          {
+            "node": "Buffer: Guardar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buffer: Buscar": {
+      "main": [
+        [
+          {
+            "node": "Buffer: Agregar Mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7c07b698-b211-4e6e-be3c-eb25d541e7f5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a4e2a9cf735002cdce952682d184b16f5944ceba0b7283c3d036de14abc7db56"
+  },
+  "id": "eGutF5X3wURB29ro",
+  "tags": []
+}
